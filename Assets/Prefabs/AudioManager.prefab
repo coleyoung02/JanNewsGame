@@ -58,6 +58,13 @@ MonoBehaviour:
   buttonPress: {fileID: 8300000, guid: 4e54eff027c72c84698b2259c968b5d9, type: 3}
   correct: {fileID: 8300000, guid: e20f565275ba9b145b0f378684122a1a, type: 3}
   incorrect: {fileID: 8300000, guid: e92ceb99c1ecb1449b668ce4e48d6d62, type: 3}
+  songs:
+  - {fileID: 8300000, guid: 3b9601b771bbe4c429725c7e80e732c0, type: 3}
+  - {fileID: 8300000, guid: 80458c93bfae3894283ae25779b951dd, type: 3}
+  - {fileID: 8300000, guid: ac0b149f08b4f1c468386ec43d5e1315, type: 3}
+  - {fileID: 8300000, guid: 35445570665b3e849bce7e0b826751e9, type: 3}
+  - {fileID: 8300000, guid: f6230b909b654b747a2d2c558622e33f, type: 3}
+  musicVolume: 0.25
 --- !u!82 &261643778717472035
 AudioSource:
   m_ObjectHideFlags: 0
