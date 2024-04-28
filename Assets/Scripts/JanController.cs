@@ -15,14 +15,12 @@ public class JanController : MonoBehaviour
     [SerializeField] private List<VideoClip> idle;
     [SerializeField] private GameProcessor processor;
     private int idleIndex;
-    private bool hasStarted = false;
 
     private void Awake()
     {
         idleIndex = 0;
         player.clip = introClip;
         player.Play();
-        hasStarted = true;
         StartCoroutine(StartGame());
         idle = idle.OrderBy(x => Random.value).ToList();
     }
@@ -35,7 +33,6 @@ public class JanController : MonoBehaviour
 
     private void Update()
     {
-            Debug.Log(player.time);
         if (true && (player.isPrepared && !player.isPlaying && player.clockTime >= .2f))
         {
             player.clip = GetRandomClip(idle);
