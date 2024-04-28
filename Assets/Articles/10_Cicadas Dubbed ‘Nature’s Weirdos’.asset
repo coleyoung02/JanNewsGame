@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c16624e1ee45487409495af14ff800e8, type: 3}
+  m_Name: "10_Cicadas Dubbed \u2018Nature\u2019s Weirdos\u2019"
+  m_EditorClassIdentifier: 
+  truthiness: 1
+  headline: "Cicadas Dubbed \u2018Nature\u2019s Weirdos\u2019"
+  date: April 2024
+  subheading: "\u201CThey pee stronger than us\u201D claims researcher."
+  buzzwords:
+  - Nature
+  - Cicada
+  - "\r"

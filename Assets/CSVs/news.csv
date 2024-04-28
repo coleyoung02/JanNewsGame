@@ -1,0 +1,4 @@
+is real (true/false),Headline,"Date (month name, year if post 2000 or year if pre 2000)",Subheading (empty if nothing),"Buzzwords/phrases if more than 1, use colomns to the right",,
+TRUE,This is the headline of a true story,April 2024,a subheading,"game, jam",pizza,news
+FALSE,This is a fake story,1999,a different subheading,,,
+TRUE,This story has no subheading,1988,,buzzy,,
