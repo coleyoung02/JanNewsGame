@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.Tilemaps;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -16,6 +17,8 @@ public class CustomButtonHover : MonoBehaviour, IPointerEnterHandler, IPointerEx
     void Awake()
     {
         rt = GetComponent<RectTransform>();
+        UnityEngine.UI.Button b = GetComponent<UnityEngine.UI.Button>();
+        b.onClick.AddListener(PlayClickSound);
     }
 
     void Update()
@@ -36,6 +39,11 @@ public class CustomButtonHover : MonoBehaviour, IPointerEnterHandler, IPointerEx
         hovered = false;
     }
 
+    private void PlayClickSound()
+    {
+        AudioManager.Instance.PlayButtonPressed();
+    }
+
     public void OnPointerExit(PointerEventData eventData)
     {
         hovered = false;
@@ -44,5 +52,6 @@ public class CustomButtonHover : MonoBehaviour, IPointerEnterHandler, IPointerEx
     public void OnPointerEnter(PointerEventData eventData)
     {
         hovered = true;
+        AudioManager.Instance.PlayButtonHover();
     }
 }

@@ -29,7 +29,7 @@ public class PersistantManager : MonoBehaviour
         }
     }
 
-    public void Start()
+    public void StartGame()
     {
         maxViewers = defaultMaxViewers;
         SceneManager.LoadScene("JanScene");

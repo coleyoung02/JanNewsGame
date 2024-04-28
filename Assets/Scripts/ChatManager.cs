@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ChatManager : MonoBehaviour
 {
     [SerializeField] private float minChatDelay;
+    [SerializeField] private bool startMenu;
     [SerializeField] private float maxChatDelay;
     [SerializeField] private GameObject chatMessage;
     [SerializeField] private GameObject chatHolder;
@@ -34,7 +36,7 @@ public class ChatManager : MonoBehaviour
     {
         if (timer <= 0f)
         {
-            if (FindFirstObjectByType<GameProcessor>().GetStrikes() >= 2)
+            if (!startMenu && FindFirstObjectByType<GameProcessor>().GetStrikes() >= 2)
             {
                 if (UnityEngine.Random.Range(0f,1f) > .65f)
                 {
@@ -45,7 +47,7 @@ public class ChatManager : MonoBehaviour
                     PostGeneralChat();
                 }
             }
-            else if (FindFirstObjectByType<GameProcessor>().GetStrikes() >= 1)
+            else if (!startMenu && FindFirstObjectByType<GameProcessor>().GetStrikes() >= 1)
             {
                 if (UnityEngine.Random.Range(0f, 1f) > .85f)
                 {
