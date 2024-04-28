@@ -23,7 +23,6 @@ public class ChatManager : MonoBehaviour
     private List<string> lowKarma;
     private int l = 0;
     private List<string> users;
-    private Coroutine runningSpam = null;
 
     void Start()
     {
@@ -36,15 +35,53 @@ public class ChatManager : MonoBehaviour
     {
         if (timer <= 0f)
         {
-            PostChat(general[g]);
-            ++g;
-            g = g % general.Count;
+            if (FindFirstObjectByType<GameProcessor>().GetStrikes() >= 2)
+            {
+                if (UnityEngine.Random.Range(0f,1f) > .65f)
+                {
+                    PostLowKarmaChat();
+                }
+                else
+                {
+                    PostGeneralChat();
+                }
+            }
+            else if (FindFirstObjectByType<GameProcessor>().GetStrikes() >= 1)
+            {
+                if (UnityEngine.Random.Range(0f, 1f) > .85f)
+                {
+                    PostLowKarmaChat();
+                }
+                else
+                {
+                    PostGeneralChat();
+                }
+            }
+            else
+            {
+                PostGeneralChat();
+            }
+            
             timer = UnityEngine.Random.Range(minChatDelay, maxChatDelay);
         }
         else 
         { 
             timer -= Time.deltaTime; 
         }
+    }
+
+    private void PostGeneralChat()
+    {
+        PostChat(general[g]);
+        ++g;
+        g = g % general.Count;
+    }
+
+    private void PostLowKarmaChat()
+    {
+        PostChat(lowKarma[l]);
+        ++l;
+        l = l % lowKarma.Count;
     }
 
     private void PostChat(string msg)
@@ -76,7 +113,7 @@ public class ChatManager : MonoBehaviour
     {
         yield return new WaitForSeconds(UnityEngine.Random.Range(0.1f, .3f));
         int chatsToDo = UnityEngine.Random.Range(min, max);
-        for (int i = 0; i < chatsToDo; ++i)
+        for (int j = 0; j < chatsToDo; ++j)
         {
             Debug.Log("chatting");
             yield return new WaitForSeconds(UnityEngine.Random.Range(0.07f, .15f));

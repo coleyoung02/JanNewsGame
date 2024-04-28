@@ -22,6 +22,8 @@ public class GameProcessor : MonoBehaviour
     private float currentTime = 0f;
     private float streamMinutes = 0f;
     private float streamMaxMinutes = 5f;
+    private int strikes = 0;
+    private bool doUpdate;
 
     // Start is called before the first frame update
     void Start()
@@ -31,26 +33,34 @@ public class GameProcessor : MonoBehaviour
         currentReal = loader.PopulateArticle();
     }
 
+    public int GetStrikes()
+    {
+        return strikes;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if (currentTime <= 0f)
+        if (doUpdate)
         {
-            Guess(!currentReal);
-        }
-        else
-        {
-            currentTime -= Time.deltaTime;
-            UpdateTimer();
-        }
-        if (streamMinutes >= streamMaxMinutes * 60f)
-        {
-            Debug.Log("stream over");
-        }
-        else
-        {
-            streamMinutes += Time.deltaTime * 6;
-            UpdateStreamTimer();
+            if (currentTime <= 0f)
+            {
+                Guess(!currentReal);
+            }
+            else
+            {
+                currentTime -= Time.deltaTime;
+                UpdateTimer();
+            }
+            if (streamMinutes >= streamMaxMinutes * 60f)
+            {
+                Debug.Log("stream over");
+            }
+            else
+            {
+                streamMinutes += Time.deltaTime * 6;
+                UpdateStreamTimer();
+            }
         }
     }
 
@@ -114,12 +124,18 @@ public class GameProcessor : MonoBehaviour
             chatManager.SpamFake();
         }
         viewers += 100;
+        PersistantManager.Instance.SetMaxViewers(viewers);
         LoadNext();
     }
 
     public void Incorrect()
     {
         Debug.Log(currentReal);
+        strikes += 1;
+        if (strikes == 3)
+        {
+
+        }
         Instantiate(x, lives.transform);
         viewers *= 3;
         viewers /= 4;
