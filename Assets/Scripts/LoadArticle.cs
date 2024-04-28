@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using System.Linq;
 using UnityEditor;
+using UnityEngine.UI;
 
 public class LoadArticle : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class LoadArticle : MonoBehaviour
     [SerializeField] private TextMeshProUGUI author;
     [SerializeField] private TextMeshProUGUI date;
     [SerializeField] private TextMeshProUGUI articleBody;
+    [SerializeField] private Image siteBg;
+    [SerializeField] private List<Sprite> siteBgs;
+    [SerializeField] private List<TMP_FontAsset> fonts;
 
     [SerializeField] private List<ArticleSO> articles;
     private int articleIndex;
@@ -38,6 +42,14 @@ public class LoadArticle : MonoBehaviour
             FindFirstObjectByType<GameProcessor>().FinishedLast();
             return true;
         }
+        int site = UnityEngine.Random.Range(0, siteBgs.Count);
+        siteBg.sprite = siteBgs[site];
+        headline.SetFont(fonts[site]);
+        subheading.SetFont(fonts[site]);
+        author.font = fonts[site];
+        date.font = fonts[site];
+        articleBody.font = fonts[site];
+
         headline.InitializeMessage(articles[articleIndex].headline);
         if (articles[articleIndex].subheading.Length > 0)
         {
@@ -59,19 +71,21 @@ public class LoadArticle : MonoBehaviour
         string b = "";
         int word_max_length = 14;
         int sentence_min_length = 5;
-        int senetence_max_length = 20;
-        int paragraph_min_length = 2;
+        int senetence_max_length = 15;
+        int paragraph_min_length = 3;
+        int paragraph_max_length = 6;
         if (buzzes.Count >= 4)
         {
+            paragraph_max_length = 7;
             paragraph_min_length = 5;
             sentence_min_length = 6;
+            senetence_max_length = 12;
         }
-        int paragraph_max_length = 7;
         int senetence_length;
         int word_length;
         int paragraph_length;
         //paragraphs
-        for (int p = 0; p < 2; p++)
+        for (int p = 0; p < 4; p++)
         {
             paragraph_length = UnityEngine.Random.Range(paragraph_min_length, paragraph_max_length);
             b += "\t";
@@ -169,13 +183,13 @@ public class LoadArticle : MonoBehaviour
             string[] fields = lines[i].Split(',');
             if (fields.Length >= 2)
             {
-                string first = fields[0];
-                string last = fields[1];
-                if (first.Length > 1)
+                string first = fields[0].Replace("\r", "");
+                string last = fields[1].Replace("\r", "");
+                if (first.Length > 0)
                 {
                     firstNames.Add(first);
                 }
-                if (last.Length > 1)
+                if (last.Length > 0)
                 {
                     lastNames.Add(last);
                 }

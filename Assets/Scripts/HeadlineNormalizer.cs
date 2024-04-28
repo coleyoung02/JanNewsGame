@@ -14,6 +14,10 @@ public class HeadlineNormalizer : MonoBehaviour
         rectTransform.sizeDelta = new Vector2(rectTransform.sizeDelta.x, (textMeshProUGUI.fontSize) * GetNumLines() + 20);
     }
 
+    public void SetFont(TMP_FontAsset f)
+    {
+        textMeshProUGUI.font = f;
+    }
     public int GetNumLines()
     {
         // Calculate the number of lines by dividing the preferred height by the line height

@@ -10,7 +10,6 @@ public class ChatManager : MonoBehaviour
     [SerializeField] private GameObject chatHolder;
     [SerializeField] private TextAsset csvFile;
     private float timer;
-    private int count = 0;
 
     private List<string> general;
     private int g = 0;
@@ -115,7 +114,6 @@ public class ChatManager : MonoBehaviour
         int chatsToDo = UnityEngine.Random.Range(min, max);
         for (int j = 0; j < chatsToDo; ++j)
         {
-            Debug.Log("chatting");
             yield return new WaitForSeconds(UnityEngine.Random.Range(0.07f, .15f));
             if (pool == real)
             {
@@ -134,10 +132,6 @@ public class ChatManager : MonoBehaviour
                 PostChat(pool[i]);
                 ++i;
                 i = i % incorrect.Count;
-            }
-            else
-            {
-                Debug.Log("no pools hit");
             }
         }
 
@@ -159,14 +153,14 @@ public class ChatManager : MonoBehaviour
             string[] fields = lines[i].Split(',');
             if (fields.Length >= 2)
             {
-                string user = fields[0];
-                string message = fields[1];
-                string cat = fields[2];
-                if (user.Length > 1)
+                string user = fields[0].Replace("\r", "");
+                string message = fields[1].Replace("\r", "");
+                string cat = fields[2].Replace("\r", "");
+                if (user.Length > 0)
                 {
                     users.Add(user);
                 }
-                if (message.Length > 1)
+                if (message.Length > 0)
                 {
                     if (cat.Equals("LowKarma"))
                     {

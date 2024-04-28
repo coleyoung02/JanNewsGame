@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,8 +13,12 @@ public class GameProcessor : MonoBehaviour
     [SerializeField] private TextMeshProUGUI viewerUI;
     [SerializeField] private ChatManager chatManager;
     [SerializeField] private Slider timer;
+    [SerializeField] private RawImage timerFill;
     [SerializeField] private TextMeshProUGUI timerClock;
-    [SerializeField] private TextMeshProUGUI streamClock;
+    [SerializeField] private Color green;
+    [SerializeField] private Color red;
+    [SerializeField] private JanController jan;
+    //[SerializeField] private TextMeshProUGUI streamClock;
     [SerializeField] private Slider streamTimer;
     bool currentReal;
     bool articlesRemain = true;
@@ -23,7 +28,7 @@ public class GameProcessor : MonoBehaviour
     private float streamMinutes = 0f;
     private float streamMaxMinutes = 5f;
     private int strikes = 0;
-    private bool doUpdate;
+    private bool doUpdate = false;
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +43,11 @@ public class GameProcessor : MonoBehaviour
         return strikes;
     }
 
+    public void SetDoUpdate(bool updates)
+    {
+        doUpdate = updates;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -45,7 +55,7 @@ public class GameProcessor : MonoBehaviour
         {
             if (currentTime <= 0f)
             {
-                Guess(!currentReal);
+                Guess(!currentReal, true);
             }
             else
             {
@@ -58,7 +68,7 @@ public class GameProcessor : MonoBehaviour
             }
             else
             {
-                streamMinutes += Time.deltaTime * 6;
+                streamMinutes += Time.deltaTime;
                 UpdateStreamTimer();
             }
         }
@@ -67,30 +77,31 @@ public class GameProcessor : MonoBehaviour
     private void UpdateTimer()
     {
         timer.value = currentTime;
+        timerFill.color = Color.Lerp(red, green, Mathf.Max(0, (currentTime - 10f))/ (maxTime - 10f));
         int seconds = Mathf.RoundToInt(currentTime);
         if (seconds < 10)
         {
-            timerClock.text = "0:0" + seconds.ToString();
+            timerClock.text = "<mspace=.6em>0:0" + seconds.ToString() + "</mspace>";
         }
         else
         {
-            timerClock.text = "0:" + seconds.ToString();
+            timerClock.text = "<mspace=.6em>0:" + seconds.ToString() + "</mspace>";
         }
     }
 
     private void UpdateStreamTimer()
     {
-        streamTimer.value = streamMinutes;
-        int hours = (int)streamMinutes / 60;
-        int minutes = (int)streamMinutes % 60;
-        if (minutes < 10)
-        {
-            streamClock.text = hours + ":0" + minutes.ToString();
-        }
-        else
-        {
-            streamClock.text = hours + ":" + minutes.ToString();
-        }
+        //streamTimer.value = streamMinutes;
+        //int hours = (int)streamMinutes / 60;
+        //int minutes = (int)streamMinutes % 60;
+        //if (minutes < 10)
+        //{
+        //    streamClock.text = hours + ":0" + minutes.ToString();
+        //}
+        //else
+        //{
+        //    streamClock.text = hours + ":" + minutes.ToString();
+        //}
     }
 
     private void LoadNext()
@@ -101,16 +112,29 @@ public class GameProcessor : MonoBehaviour
         UpdateTimer();
     }
 
-    public void Guess(bool real)
+    public void Guess(bool real, bool timeout)
     {
+        if (!doUpdate)
+        {
+            return;
+        }
+        if (!timeout)
+        {
+            jan.PlayReaction(real, real == currentReal);
+        }
         if (real == currentReal)
         {
             Correct();
         }
         else
         {
-            Incorrect();
+            Incorrect(timeout);
         }
+    }
+
+    public void Guess(bool real)
+    {
+        Guess(real, false);
     }
 
     public void Correct()
@@ -128,19 +152,26 @@ public class GameProcessor : MonoBehaviour
         LoadNext();
     }
 
-    public void Incorrect()
+    public void Incorrect(bool timeout)
     {
         Debug.Log(currentReal);
         strikes += 1;
         if (strikes == 3)
         {
-
+            doUpdate = false;
+            StartCoroutine(LoseStream());
         }
         Instantiate(x, lives.transform);
         viewers *= 3;
         viewers /= 4;
         chatManager.SpamError();
         LoadNext();
+    }
+
+    private IEnumerator LoseStream()
+    {
+        yield return new WaitForSeconds(3f);
+        PersistantManager.Instance.Lose();
     }
 
     public void FinishedLast()

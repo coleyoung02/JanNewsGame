@@ -12,7 +12,7 @@ public class ChatMessage : MonoBehaviour
     public void InitializeMessage(string messageString)
     {
         textMeshProUGUI.text = messageString;
-        rectTransform.sizeDelta = new Vector2(rectTransform.sizeDelta.x, (textMeshProUGUI.fontSize + LINE_BUFFER) * GetNumLines());
+        rectTransform.sizeDelta = new Vector2(rectTransform.sizeDelta.x, (textMeshProUGUI.fontSize) * GetNumLines());
     }
 
     public int GetNumLines()
