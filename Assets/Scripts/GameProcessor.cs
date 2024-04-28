@@ -220,5 +220,6 @@ public class GameProcessor : MonoBehaviour
     public void FinishedLast()
     {
         doUpdate = false;
+        SceneManager.LoadScene("Win");
     }
 }
