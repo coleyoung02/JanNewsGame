@@ -33,7 +33,7 @@ public class LoadArticle : MonoBehaviour
 
     public bool PopulateArticle()
     {
-        if (articleIndex > articles.Count)
+        if (articleIndex > articles.Count - 1)
         {
             FindFirstObjectByType<GameProcessor>().FinishedLast();
             return true;
