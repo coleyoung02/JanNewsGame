@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameProcessor : MonoBehaviour
@@ -72,7 +73,7 @@ public class GameProcessor : MonoBehaviour
             }
             if (streamMinutes <= 0)
             {
-                Debug.Log("stream over");
+                SceneManager.LoadScene("Win");
             }
             else
             {
@@ -174,14 +175,23 @@ public class GameProcessor : MonoBehaviour
     {
         AudioManager.Instance.PlayError();
         strikes += 1;
+        int sub;
         if (strikes == 3)
         {
             doUpdate = false;
             StartCoroutine(LoseStream());
+            Instantiate(x, lives.transform);
+            multiplier = 1;
+            sub = Mathf.RoundToInt(viewers * .25f);
+            viewers -= sub;
+            multiplier = 1;
+            ShowChange(-sub);
+            chatManager.SpamError();
+            return;
         }
         Instantiate(x, lives.transform);
         multiplier = 1;
-        int sub = Mathf.RoundToInt(viewers * .25f);
+        sub = Mathf.RoundToInt(viewers * .25f);
         viewers -= sub;
         multiplier = 1;
         ShowChange(-sub);
@@ -203,14 +213,12 @@ public class GameProcessor : MonoBehaviour
 
     private IEnumerator LoseStream()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(7f);
         PersistantManager.Instance.Lose();
     }
 
     public void FinishedLast()
     {
-        return;
+        doUpdate = false;
     }
-
-    
 }
