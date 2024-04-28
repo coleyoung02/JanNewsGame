@@ -4356,6 +4356,46 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1796423241731370858, guid: a1b345633ba7b954a97f9cc6734bf9a6, type: 3}
+      propertyPath: buttonHover
+      value: 
+      objectReference: {fileID: 8300000, guid: e1f8ce37cb00bf64ea059f64f23a6bf3, type: 3}
+    - target: {fileID: 1796423241731370858, guid: a1b345633ba7b954a97f9cc6734bf9a6, type: 3}
+      propertyPath: buttonPress
+      value: 
+      objectReference: {fileID: 8300000, guid: 4e54eff027c72c84698b2259c968b5d9, type: 3}
+    - target: {fileID: 1796423241731370858, guid: a1b345633ba7b954a97f9cc6734bf9a6, type: 3}
+      propertyPath: musicVolume
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1796423241731370858, guid: a1b345633ba7b954a97f9cc6734bf9a6, type: 3}
+      propertyPath: songs.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1796423241731370858, guid: a1b345633ba7b954a97f9cc6734bf9a6, type: 3}
+      propertyPath: pitchShiftAmmount
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 1796423241731370858, guid: a1b345633ba7b954a97f9cc6734bf9a6, type: 3}
+      propertyPath: songs.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 3b9601b771bbe4c429725c7e80e732c0, type: 3}
+    - target: {fileID: 1796423241731370858, guid: a1b345633ba7b954a97f9cc6734bf9a6, type: 3}
+      propertyPath: songs.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 80458c93bfae3894283ae25779b951dd, type: 3}
+    - target: {fileID: 1796423241731370858, guid: a1b345633ba7b954a97f9cc6734bf9a6, type: 3}
+      propertyPath: songs.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: ac0b149f08b4f1c468386ec43d5e1315, type: 3}
+    - target: {fileID: 1796423241731370858, guid: a1b345633ba7b954a97f9cc6734bf9a6, type: 3}
+      propertyPath: songs.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 35445570665b3e849bce7e0b826751e9, type: 3}
+    - target: {fileID: 1796423241731370858, guid: a1b345633ba7b954a97f9cc6734bf9a6, type: 3}
+      propertyPath: songs.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: f6230b909b654b747a2d2c558622e33f, type: 3}
     - target: {fileID: 2098332603480970214, guid: a1b345633ba7b954a97f9cc6734bf9a6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 613.73376

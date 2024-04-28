@@ -17,12 +17,19 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private List<AudioSource> SFXsources;
     private int sfxIndex;
     [SerializeField] private AudioSource MusicSource;
+    private float trackTimer;
 
     [Header("Clips")]
     [SerializeField] private AudioClip buttonHover;
     [SerializeField] private AudioClip buttonPress;
     [SerializeField] private AudioClip correct;
     [SerializeField] private AudioClip incorrect;
+    [SerializeField] private AudioClip[] songs;
+    private bool[] songsPlayed;
+    private int numSongsPlayed;
+
+    [Header("Sound Control")]
+    [SerializeField] private float musicVolume;
 
     protected void Awake()
     {
@@ -34,13 +41,16 @@ public class AudioManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            songsPlayed = new bool[songs.Length];
+            for (int i = 0; i < songsPlayed.Length; i++)
+                songsPlayed[i] = false;
         }
     }
 
     public void PlayClip(Channel channel, AudioClip clip, float sfxShiftOveride = 1f)
     {
         AudioSource s = null;
-        if (channel == Channel.MUSIC) 
+        if (channel == Channel.MUSIC)
         {
             s = MusicSource;
         }
@@ -52,6 +62,12 @@ public class AudioManager : MonoBehaviour
         }
         s.clip = clip;
         s.Play();
+    }
+
+    public void ChangeSong(int songIndex)
+    {
+        trackTimer = 0;
+        PlayClip(Channel.MUSIC, songs[songIndex]);
     }
 
     public void PlayButtonHover()
@@ -78,5 +94,33 @@ public class AudioManager : MonoBehaviour
     {
         yield return new WaitForSeconds(.3f);
         PlayClip(Channel.SFX, toPlay, .25f);
+    }
+
+    void Update()
+    {
+        MusicSource.volume = musicVolume;
+        if (songs.Length > 0)
+        {
+            if (MusicSource.isPlaying)
+                trackTimer += 1 * Time.deltaTime;
+
+            if (!MusicSource.isPlaying || trackTimer >= MusicSource.clip.length)
+            {
+                int songIndex = UnityEngine.Random.Range(0, songs.Length);
+                while (songsPlayed[songIndex])
+                    songIndex = UnityEngine.Random.Range(0, songs.Length);
+                numSongsPlayed++;
+                songsPlayed[songIndex] = true;
+                Debug.Log("Song Played: " + songIndex);
+                ChangeSong(songIndex);
+            }
+
+            if (numSongsPlayed >= songs.Length)
+            {
+                numSongsPlayed = 0;
+                for (int i = 0; i < songsPlayed.Length; i++)
+                    songsPlayed[i] = false;
+            }
+        }
     }
 }
