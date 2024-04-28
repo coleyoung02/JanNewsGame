@@ -15,11 +15,16 @@ public class GameProcessor : MonoBehaviour
     [SerializeField] private Slider timer;
     [SerializeField] private RawImage timerFill;
     [SerializeField] private TextMeshProUGUI timerClock;
+    [SerializeField] private Slider streamTimer;
+    [SerializeField] private TextMeshProUGUI streamClock;
     [SerializeField] private Color green;
     [SerializeField] private Color red;
     [SerializeField] private JanController jan;
+    [SerializeField] private GameObject plus;
+    [SerializeField] private GameObject minus;
+    [SerializeField] private RectTransform plusSpot;
+    [SerializeField] private RectTransform minusSpot;
     //[SerializeField] private TextMeshProUGUI streamClock;
-    [SerializeField] private Slider streamTimer;
     bool currentReal;
     bool articlesRemain = true;
     int viewers = 10000;
@@ -29,12 +34,15 @@ public class GameProcessor : MonoBehaviour
     private float streamMaxMinutes = 5f;
     private int strikes = 0;
     private bool doUpdate = false;
+    private float multiplier = 1f;
+    private float multiplierFactor = 1.1f;
 
     // Start is called before the first frame update
     void Start()
     {
         currentTime = maxTime;
         loader.Initialize();
+        streamMinutes = streamMaxMinutes * 60f;
         currentReal = loader.PopulateArticle();
     }
 
@@ -62,13 +70,13 @@ public class GameProcessor : MonoBehaviour
                 currentTime -= Time.deltaTime;
                 UpdateTimer();
             }
-            if (streamMinutes >= streamMaxMinutes * 60f)
+            if (streamMinutes <= 0)
             {
                 Debug.Log("stream over");
             }
             else
             {
-                streamMinutes += Time.deltaTime;
+                streamMinutes -= Time.deltaTime;
                 UpdateStreamTimer();
             }
         }
@@ -91,17 +99,17 @@ public class GameProcessor : MonoBehaviour
 
     private void UpdateStreamTimer()
     {
-        //streamTimer.value = streamMinutes;
-        //int hours = (int)streamMinutes / 60;
-        //int minutes = (int)streamMinutes % 60;
-        //if (minutes < 10)
-        //{
-        //    streamClock.text = hours + ":0" + minutes.ToString();
-        //}
-        //else
-        //{
-        //    streamClock.text = hours + ":" + minutes.ToString();
-        //}
+        streamTimer.value = streamMinutes;
+        int hours = (int)streamMinutes / 60;
+        int minutes = (int)streamMinutes % 60;
+        if (minutes < 10)
+        {
+            streamClock.text = hours + ":0" + minutes.ToString();
+        }
+        else
+        {
+            streamClock.text = hours + ":" + minutes.ToString();
+        }
     }
 
     private void LoadNext()
@@ -139,6 +147,7 @@ public class GameProcessor : MonoBehaviour
 
     public void Correct()
     {
+        AudioManager.Instance.PlaySuccess();
         if (currentReal)
         {
             chatManager.SpamReal();
@@ -147,14 +156,23 @@ public class GameProcessor : MonoBehaviour
         {
             chatManager.SpamFake();
         }
-        viewers += 100;
-        PersistantManager.Instance.SetMaxViewers(viewers);
+        AddViewers();
         LoadNext();
+    }
+
+    private void AddViewers()
+    {
+        int toAdd = Mathf.RoundToInt(100 * multiplier);
+        viewers += toAdd;
+        multiplier *= multiplierFactor;
+        ShowChange(toAdd);
+        PersistantManager.Instance.SetMaxViewers(viewers);
+
     }
 
     public void Incorrect(bool timeout)
     {
-        Debug.Log(currentReal);
+        AudioManager.Instance.PlayError();
         strikes += 1;
         if (strikes == 3)
         {
@@ -162,10 +180,25 @@ public class GameProcessor : MonoBehaviour
             StartCoroutine(LoseStream());
         }
         Instantiate(x, lives.transform);
-        viewers *= 3;
-        viewers /= 4;
+        multiplier = 1;
+        int sub = Mathf.RoundToInt(viewers * .25f);
+        viewers -= sub;
+        multiplier = 1;
+        ShowChange(-sub);
         chatManager.SpamError();
         LoadNext();
+    }
+
+    private void ShowChange(int n)
+    {
+        if (n > 0)
+        {
+            Instantiate(plus, plusSpot).GetComponent<ViewIncrement>().SetNumber(n);
+        }
+        else
+        {
+            Instantiate(minus, minusSpot).GetComponent<ViewIncrement>().SetNumber(n);
+        }
     }
 
     private IEnumerator LoseStream()

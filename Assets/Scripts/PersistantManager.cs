@@ -34,6 +34,11 @@ public class PersistantManager : MonoBehaviour
         maxViewers = defaultMaxViewers;
         SceneManager.LoadScene("JanScene");
     }
+    public void MainMenu()
+    {
+        maxViewers = defaultMaxViewers;
+        SceneManager.LoadScene("StartMenu");
+    }
 
     public void Quit()
     {

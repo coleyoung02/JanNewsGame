@@ -21,6 +21,8 @@ public class AudioManager : MonoBehaviour
     [Header("Clips")]
     [SerializeField] private AudioClip buttonHover;
     [SerializeField] private AudioClip buttonPress;
+    [SerializeField] private AudioClip correct;
+    [SerializeField] private AudioClip incorrect;
 
     protected void Awake()
     {
@@ -60,5 +62,21 @@ public class AudioManager : MonoBehaviour
     public void PlayButtonPressed()
     {
         PlayClip(Channel.SFX, buttonPress);
+    }
+
+    public void PlaySuccess()
+    {
+        StartCoroutine(PlayAfterDelay(correct));
+    }
+
+    public void PlayError()
+    {
+        StartCoroutine(PlayAfterDelay(incorrect));
+    }
+
+    private IEnumerator PlayAfterDelay(AudioClip toPlay)
+    {
+        yield return new WaitForSeconds(.3f);
+        PlayClip(Channel.SFX, toPlay, .25f);
     }
 }

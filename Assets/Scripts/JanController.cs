@@ -14,7 +14,11 @@ public class JanController : MonoBehaviour
     [SerializeField] private List<VideoClip> fakeFailure;
     [SerializeField] private List<VideoClip> idle;
     [SerializeField] private GameProcessor processor;
+    [SerializeField] private VideoClip staticClip;
     private int idleIndex;
+    private VideoClip nextClip;
+    private bool playingStatic = false;
+    private float staticDelay = 0f;
 
     private void Awake()
     {
@@ -33,10 +37,18 @@ public class JanController : MonoBehaviour
 
     private void Update()
     {
-        if (true && (player.isPrepared && !player.isPlaying && player.clockTime >= .2f))
+        if (playingStatic)
         {
-            player.clip = GetRandomClip(idle);
-            player.Play();
+            if (player.clockTime >= staticDelay)
+            {
+                player.clip = nextClip;
+                playingStatic = false;
+            }
+        }
+        else if (true && (player.isPrepared && !player.isPlaying && player.clockTime >= .2f))
+        {
+            nextClip = GetRandomClip(idle);
+            PlayStatic();
         }
     }
 
@@ -46,28 +58,37 @@ public class JanController : MonoBehaviour
         {
             if (isSuccess)
             {
-                player.clip = GetRandomClip(realSuccess);
+                nextClip = GetRandomClip(realSuccess);
             }
             else
             {
-                player.clip = GetRandomClip(realFailure);
+                nextClip = GetRandomClip(realFailure);
             }
         }
         else
         {
             if (isSuccess)
             {
-                player.clip = GetRandomClip(fakeSuccess);
+                nextClip = GetRandomClip(fakeSuccess);
             }
             else
             {
-                player.clip = GetRandomClip(fakeFailure);
+                nextClip = GetRandomClip(fakeFailure);
             }
         }
+        PlayStatic();
+    }
+
+    private void PlayStatic()
+    {
+        player.clip = staticClip;
+        playingStatic = true;
+        staticDelay = UnityEngine.Random.Range(.25f, .35f);
         if (!player.isPlaying)
         {
             player.Play();
         }
+
     }
 
     private VideoClip GetRandomClip(List<VideoClip> clips)

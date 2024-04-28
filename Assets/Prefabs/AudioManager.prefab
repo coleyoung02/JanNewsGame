@@ -48,14 +48,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f84701726bd67204eaf18b3fba25801c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pitchShiftAmmount: 0.1
+  pitchShiftAmmount: 0.05
   SFXsources:
   - {fileID: 513015610394823031}
   - {fileID: 8636712049485674181}
   - {fileID: 261643778717472035}
   MusicSource: {fileID: 4885671898479399895}
-  buttonHover: {fileID: 8300000, guid: 4e54eff027c72c84698b2259c968b5d9, type: 3}
-  buttonPress: {fileID: 8300000, guid: e1f8ce37cb00bf64ea059f64f23a6bf3, type: 3}
+  buttonHover: {fileID: 8300000, guid: e1f8ce37cb00bf64ea059f64f23a6bf3, type: 3}
+  buttonPress: {fileID: 8300000, guid: 4e54eff027c72c84698b2259c968b5d9, type: 3}
+  correct: {fileID: 8300000, guid: e20f565275ba9b145b0f378684122a1a, type: 3}
+  incorrect: {fileID: 8300000, guid: e92ceb99c1ecb1449b668ce4e48d6d62, type: 3}
 --- !u!82 &261643778717472035
 AudioSource:
   m_ObjectHideFlags: 0
