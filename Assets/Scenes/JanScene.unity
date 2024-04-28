@@ -2233,10 +2233,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 155493690}
   introClip: {fileID: 32900000, guid: 9964792ef9887e54a963c36002cc46e7, type: 3}
-  realSuccess: []
-  realFailure: []
-  fakeSuccess: []
-  fakeFailure: []
+  realSuccess:
+  - {fileID: 32900000, guid: fb051ed858d7a8445a746407bc7199eb, type: 3}
+  - {fileID: 32900000, guid: 3c768306087dcc94a8a2dcc784474e34, type: 3}
+  - {fileID: 32900000, guid: b10ef5c955c52834f856e0dcc475f71c, type: 3}
+  - {fileID: 32900000, guid: 45d2c47ea90c1c840909a48d31bfd1ac, type: 3}
+  realFailure:
+  - {fileID: 32900000, guid: bed0ad5337895df4e83f2d26346ed429, type: 3}
+  - {fileID: 32900000, guid: 87c6c74329b00fc48934c424b783d32e, type: 3}
+  fakeSuccess:
+  - {fileID: 32900000, guid: 41f6ad00b7a06fd4faf96d585317b372, type: 3}
+  - {fileID: 32900000, guid: c4a89eea9780c704fb75d0e3aa708472, type: 3}
+  - {fileID: 32900000, guid: f68c473993b80994a9ade46b1cd4f8e4, type: 3}
+  - {fileID: 32900000, guid: 8845b05787dc0ba4b8b09b5153b312f3, type: 3}
+  - {fileID: 32900000, guid: 6e21d78babb57ba4c9ffd0b8d799bf5d, type: 3}
+  - {fileID: 32900000, guid: a15a2505261a467448e40dffdad29b49, type: 3}
+  - {fileID: 32900000, guid: 6584b9da48d64504294f32dd2877b7cf, type: 3}
+  - {fileID: 32900000, guid: 03ef63fb6a5566045b4908874e9c3901, type: 3}
+  - {fileID: 32900000, guid: 143a4e3f8b1950e4ba9b300fe8c4e894, type: 3}
+  fakeFailure:
+  - {fileID: 32900000, guid: 4a7b4932030774742b458c414b6045b4, type: 3}
+  - {fileID: 32900000, guid: 111bc649dd8f1434ea073322df793fc1, type: 3}
+  - {fileID: 32900000, guid: 084d67fa36b61d44aa091daf2ec8ec95, type: 3}
+  - {fileID: 32900000, guid: 31f9ef0be61dc454b99f1256df290a01, type: 3}
+  - {fileID: 32900000, guid: f1a4bb96c58920240ba6a45414e4114a, type: 3}
   idle: []
   processor: {fileID: 1695448215}
   staticClip: {fileID: 32900000, guid: 22c97b4e1571e034d93b1efd7a2a8954, type: 3}
