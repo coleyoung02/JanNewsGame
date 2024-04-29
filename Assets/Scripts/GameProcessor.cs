@@ -25,6 +25,8 @@ public class GameProcessor : MonoBehaviour
     [SerializeField] private GameObject minus;
     [SerializeField] private RectTransform plusSpot;
     [SerializeField] private RectTransform minusSpot;
+    [SerializeField] private ModAnimator modAnim;
+
     //[SerializeField] private TextMeshProUGUI streamClock;
     bool currentReal;
     bool articlesRemain = true;
@@ -77,7 +79,7 @@ public class GameProcessor : MonoBehaviour
             }
             else
             {
-                streamMinutes -= Time.deltaTime * 60;
+                streamMinutes -= Time.deltaTime;
                 UpdateStreamTimer();
             }
         }
@@ -123,6 +125,7 @@ public class GameProcessor : MonoBehaviour
 
     public void Guess(bool real, bool timeout)
     {
+        modAnim.playReaction(real == currentReal);
         if (!doUpdate)
         {
             return;
@@ -176,6 +179,10 @@ public class GameProcessor : MonoBehaviour
         AudioManager.Instance.PlayError();
         strikes += 1;
         int sub;
+        if (strikes == 2)
+        {
+            modAnim.panicState();
+        }
         if (strikes == 3)
         {
             doUpdate = false;

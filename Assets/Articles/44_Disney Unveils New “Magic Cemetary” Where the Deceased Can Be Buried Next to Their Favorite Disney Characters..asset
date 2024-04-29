@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c16624e1ee45487409495af14ff800e8, type: 3}
+  m_Name: "44_Disney Unveils New \u201CMagic Cemetary\u201D Where the Deceased Can
+    Be Buried Next to Their Favorite Disney Characters."
+  m_EditorClassIdentifier: 
+  truthiness: 0
+  headline: "Disney Unveils New \u201CMagic Cemetary\u201D Where the Deceased Can
+    Be Buried Next to Their Favorite Disney Characters."
+  date: November 2018
+  subheading: "Disney CEO says this will \u201Ccarry the Disney magic into the afterlife\u201D."
+  buzzwords:
+  - Disney
+  - Cemetary

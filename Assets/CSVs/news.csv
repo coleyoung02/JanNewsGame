@@ -1,4 +1,57 @@
-is real (true/false),Headline,"Date (month name, year if post 2000 or year if pre 2000)",Subheading (empty if nothing),"Buzzwords/phrases if more than 1, use colomns to the right",,
-TRUE,This is the headline of a true story,April 2024,a subheading,"game, jam",pizza,news
-FALSE,This is a fake story,1999,a different subheading,,,
-TRUE,This story has no subheading,1988,,buzzy,,
+is real (true/false),Headline (use ; in place of a comma),Date (month name year if post 2000 or year if pre 2000),Subheading (empty if nothing),Buzzwords/phrases if more than 1: use colomns to the right,,
+TRUE,Strain of Bacteria Named After Popular Streamer,2023,Upon discovery new colony was lovingly dubbed ‘Germa985,Medical,Live-Stream,
+TRUE,Concertgoer Experiences ‘FULL BODY GROAN’ at LA Phil Concert,1988,The 2nd movement of Tchaikovsky’s 5th allegedly brought individual to climax.,Music,Groan,
+TRUE,Trillions of Cicadas Set to Invade America in 2024,April 2024,“Cicadas will emerge triumphant” says Scientist.,Nature,Cicada,
+TRUE,California Community Elects Dog as Mayor,October 2021,Approval rates allegedly high amongst townsfolk.,Dogs,California,
+TRUE,Caesar Salad Invented in Mexico by Italian-American Man,1924,Restaurant specialty becomes a worldwide sensation.,Salad,Mexico,
+TRUE,Squirrels are Leading Cause of Power Outages in United States,July 2017,Rodents may be responsible for your Valorant bitrate.,Power Outage,Squirrels,
+TRUE,Giant Popsicle Floods City Streets,June 2005,Roads turned sticky in publicity stunt gone wrong,Flood,Popsicle,
+TRUE,Japan Turns Train Line into Idol Group,May 2021,Popular stops are reborn as hot anime men that sing for you.,Anime,Trains,Idol
+TRUE,World’s Oldest Man Claims Longevity Secret is Luck,April 2024,Along with weekly fish and chips.,UK,Lifestyle,
+TRUE,Cicadas Dubbed ‘Nature’s Weirdos’,April 2024,“They pee stronger than us” claims researcher.,Nature,Cicada,
+TRUE,Sausage Vending Machines Incredibly Lucrative in Rural Germany,June 2019,The glizzy-to-gullet pipeline has never been faster.,Germany,Sausage,
+TRUE,Internet Proposes Fire Ants be Renamed “Spicy Bois”,July 2016,Change.org petition gains surprising traction amongst the youth.,Change.org,Ants,
+TRUE,Boring; Oregon forms Sister Community with Dull; Scotland and Bland; Australia,September 2022,Together they are the “Trinity of Tedium”.,Oregon,Scotland,Austrailia
+TRUE,The Town of Fucking; Austria is now has changed its name to ‘Fugging’,November 2020,Officials decide to change historic town name claiming they’ve grown tired of it.,Austria,,
+TRUE,Cock Island is a Totally Real Place in Mayo County Ireland,December 2006,Balls Island is too in case you were wondering.,Ireland,Island,
+TRUE,Scientists Find Ancient ‘Megastructure’ Under on the Seafloor,February 2024,Long-lost wall built by our distant ancestors has been found under the sea.,Ancient,Ocean,
+TRUE,Elmo Becomes a Therapist in Recent X Thread,January 2024,Adults have found some emotional support from their childhood icon.,Elmo,Therapy,
+TRUE,Forced Labor Camps in Inland China Continue to Opress,February 2024,Estimates range from tens of thousands to millions detained,Xinjiang,Auto Manufacturers,
+TRUE,Italy Appoints Prime Minister with ties to Fascism,October 2022,Is Italy returning to fascism after nearly 80 years?,Mussolini,WWII,
+TRUE,Chicago Sends Raw Sewage to St. Louis rather than Lake Michigan.,1900,R.I.P. Missouri,Sewage,Mississippi River,Continental Divide
+TRUE,Parts Fall Off Boeing Plane; Again,April 2024,Who gets in one of these things?,Doors,Deathtrap,
+TRUE,UCI VGDC Game Jam a Success,April 2024,Some of these games are... interesting...,Chat,Real,Fake
+TRUE,Piss Christ' Well Recieved by Gallery Visitors,1987,The Jesus figure submerged in bodily fluids a hit,Andres Serrano,Controversial,
+TRUE,UCI Alum Crucifies himself to Volkswagen,1974,The performance actor is best know for having himself shot,Five Day Locker Piece,Shoot,
+TRUE,Frogs Utilize Ultrasound Noise We Cannot Hear for Self-Defence,April 2024,Brazilian scientists figured out that frogs scream; we just can’t hear them.,Frogs,Brazil,Scream
+TRUE,Chechnya Bans All Music Not Within 80-116 Beats Per Minute,April 2024,This Russian Republic’s strange new law would ban almost all western rave and techno music,Music,Russia,Chechnya
+TRUE,Bird Causes Hour-and-a-Half Long Delay at Brighton Train Station,April 2024,Brighton closes multiple platforms due to an endangered seagull landing on the tracks,Seagull,United Kingdom,Brighton Station
+TRUE,Chesapeake Bans Trick-or-Treating For Everyone Older Than 12,1967,In this Virginia city; you’re more in for a trick than a treat on Halloween,Trick-or-treat,Virginia,Chesapeake
+TRUE,Opossums Have 25 Babies Per Litter But Only 13 Nipples to Feed Them,February 2021,Baby opossums that don’t grab one in time cannot survive.,Opossums,Nipples,
+FALSE,Chicagoans Celebrate “Spiritual Successor” to Infamous ‘Rat Hole’,April 2024,Say hello to the Cockroach Cavity.,Chicago,Rat,Cockroach
+FALSE,Extinct Species of Marine Superfauna Found Thriving in South Pacific,April 2001,“We’re just shocked this has gone under our noses for so long.” claims researcher.,Nature,Pacific Ocean,
+FALSE,Florida Man Decides to Fight Every Alligator to Solve Pest Issue,May 2004,Those gators have had it too good for too long.,Florida Man,Alligator,
+FALSE,McConnell Blames Recent Freeze-up on ‘Lag’,February 2023,Bad ping has finally started to affect our government.,Mitch McConnell,Lag,
+FALSE,Athletes Contest Proposed Hygiene Guidelines in Esports League,August 2020,Daily showers may prove to be gamers’ toughest boss yet.,Esports,Hygiene,
+FALSE,Banana Peel Experiment Puts Influencer in Hospital,January 2023,“I didn’t think they were actually that slippery”,Influencers,,
+FALSE,‘No Way to Prevent This’ Says Only Nation Where This Regularly Happens,October 2013,It’s mortifying how this keeps happening.,Tragedy,,
+FALSE,Analysts Declare Hotdogs to be Tacos,October 2021,After careful consideration food analysts have deemed hot dogs and tacos to be ‘distant cousins’.,Tacos,Hot Dogs,
+FALSE,‘Paint Stirring TikTok’ Drama May Lead to Lawsuit,March 2021,Controversy over mixing technique plagiarism has raised the possibilities of legal action.,TikTok,Lawsuit,
+FALSE,Biologists Say Construction of the Great Wall of China has Destroyed Geese Migration Patterns,October 2023,Has Illumination’s “Migration” been a lie this whole time?,China,Migration,Geese
+FALSE,American Red Cross Association Bans Individuals Who Have Taken COVID-19 Vaccine From Donating “Tainted” Blood,January 2021,A fierce debate has sparked over ARCA’s blood donor eligibility.,COVID-19,Vaccines,Blood Donation
+FALSE,Biden Issues Executive Order Gifting Immigrants with a $5000 Visa Gift Card.,July 2020,Controversial immigaration order sparks massive debate in Congress,Joe Biden,Immigration,
+FALSE,Apple CEO Dawns Apple Vision Pro to View Reality Where People Buy the Apple Vision Pro,March 2024,Check out this demonstration of Apple’s newest technological innovation,Apple Vision Pro,Augmented Reality,
+FALSE,Congress Passes Bill Expanding Surveillance on Every American Except for Fellow Congressmen,September 2022,“You’re just too good to be true. Can’t take my eyes off of you” - Uncle Sam,Congress,Surveillance,
+FALSE,Disney Unveils New “Magic Cemetary” Where the Deceased Can Be Buried Next to Their Favorite Disney Characters.,November 2018,Disney CEO says this will “carry the Disney magic into the afterlife”.,Disney,Cemetary,
+FALSE,Award Winning Indie Game ‘Sandwich Sim’ Breaches Morbillion Downloads,April 2024,“Yay!” - Cole Young,Sandwich Sim,Soup,Sugar bear
+FALSE,Microsoft will disable users’ computers when they share ‘non-mainstream’ content,November 2021,Microsoft’s latest attempt to combat hate has many people alarmed,Microsoft,,
+FALSE,Scientists warn of an emerging “Disease X”,January 2024,“COVID was merely a warning” says some experts.,Disease X,Medical,
+FALSE,T-mobile Plans to Fine Consumers For Texts Featuring Sex and Drugs,February 2024,T-mobile users will now need to think twice when texting.,T-mobile,Texting,
+FALSE,Scientists say Microplastics in the Ocean Will “Decimate” Trout Populations.,November 2011,Will the trout ever catch a break?,Trout,Microplastics,
+FALSE,Boy Floats away Trapped Inside Balloon,October 2009,Dramatic details sweep the nation,Balloon,Accident,
+FALSE,Cult Gathers at CERN facility near Geneva; Switzerland,August 2016,Obscure Christian sect or something more devious?,Robes,Satan,Laboratory
+FALSE,Iraq found to be stockpiling weapons of mass destruction,October 2002,Chemical weapons in Iraq continue into 21st century,George W. Bush,Saddam Hussein,Anthrax
+FALSE,New Evidence Linking Covid-19 to Chinese Bio-Labs,May 2020,Was Covid-19 an intentional plot or an accidental escape?,Biological Warfare,Xi Jinping,
+FALSE,New Film about 'Gay Jesus' stirs controversy,1979,Is a promiscous Jesus compatible with the Bible?,Old Testament,Judas,
+FALSE,Chicago Man Develops Way to Capture Brain Signals on Polaroids,1967,Who needs EEGs?,Serios,Ganymede,
+FALSE,Cheese Can Make You Dream,November 2021,White Cheddar makes you dream about celebrities. Blue Cheese give you vivid dreams.,Cheese,Dreams,

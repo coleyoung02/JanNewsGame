@@ -49,14 +49,14 @@ public class CSVToArticleSO : EditorWindow
                 }
 
                 string truthiness = fields[0].Replace("\r", "");
-                string headline = fields[1].Replace("\r", "");
+                string headline = fields[1].Replace("\r", "").Replace(";", ",");
                 string date = fields[2].Replace("\r", "");
-                string subheading = fields[3];
+                string subheading = fields[3].Replace("\r", "").Replace(";", ",");
                 for (int j = 4; j < fields.Length; j++)
                 {
                     if (fields[j].Replace("\r", "").Length > 0)
                     {
-                        buzzwords.Add(fields[j].Replace("\r", ""));
+                        buzzwords.Add(fields[j].Replace("\r", "").Replace(";", ","));
                     }
                 }
                 ArticleSO messageData = ScriptableObject.CreateInstance<ArticleSO>();

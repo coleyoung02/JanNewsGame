@@ -23,6 +23,8 @@ public class ChatManager : MonoBehaviour
     private int i = 0;
     private List<string> lowKarma;
     private int l = 0;
+    private List<string> starting;
+    private int s = 0;
     private List<string> users;
 
     void Start()
@@ -36,7 +38,11 @@ public class ChatManager : MonoBehaviour
     {
         if (timer <= 0f)
         {
-            if (!startMenu && FindFirstObjectByType<GameProcessor>().GetStrikes() >= 2)
+            if (startMenu)
+            {
+                PostStartingChat();
+            }
+            else if (!startMenu && FindFirstObjectByType<GameProcessor>().GetStrikes() >= 2)
             {
                 if (UnityEngine.Random.Range(0f,1f) > .65f)
                 {
@@ -76,6 +82,13 @@ public class ChatManager : MonoBehaviour
         PostChat(general[g]);
         ++g;
         g = g % general.Count;
+    }
+
+    private void PostStartingChat()
+    {
+        PostChat(starting[s]);
+        ++s;
+        s = s % general.Count;
     }
 
     private void PostLowKarmaChat()
@@ -147,6 +160,7 @@ public class ChatManager : MonoBehaviour
         incorrect = new List<string>();
         lowKarma = new List<string>();
         users = new List<string>();
+        starting = new List<string>();
 
         string[] lines = csvFile.text.Split('\n');
 
@@ -179,6 +193,10 @@ public class ChatManager : MonoBehaviour
                     else if (cat.Equals("Incorrect"))
                     {
                         incorrect.Add(message);
+                    }
+                    else if (cat.Equals("streamStarting"))
+                    {
+                        starting.Add(message);
                     }
                     else
                     {

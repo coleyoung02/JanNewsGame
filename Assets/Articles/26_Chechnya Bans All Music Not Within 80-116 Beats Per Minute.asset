@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c16624e1ee45487409495af14ff800e8, type: 3}
+  m_Name: 26_Chechnya Bans All Music Not Within 80-116 Beats Per Minute
+  m_EditorClassIdentifier: 
+  truthiness: 1
+  headline: Chechnya Bans All Music Not Within 80-116 Beats Per Minute
+  date: April 2024
+  subheading: "This Russian Republic\u2019s strange new law would ban almost all
+    western rave and techno music"
+  buzzwords:
+  - Music
+  - Russia
+  - Chechnya

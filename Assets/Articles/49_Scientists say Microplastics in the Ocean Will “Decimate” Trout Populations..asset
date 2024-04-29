@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c16624e1ee45487409495af14ff800e8, type: 3}
+  m_Name: "49_Scientists say Microplastics in the Ocean Will \u201CDecimate\u201D
+    Trout Populations."
+  m_EditorClassIdentifier: 
+  truthiness: 0
+  headline: "Scientists say Microplastics in the Ocean Will \u201CDecimate\u201D
+    Trout Populations."
+  date: November 2011
+  subheading: Will the trout ever catch a break?
+  buzzwords:
+  - Trout
+  - Microplastics

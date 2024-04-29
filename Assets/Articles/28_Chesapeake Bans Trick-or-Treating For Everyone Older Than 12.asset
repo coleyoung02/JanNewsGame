@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c16624e1ee45487409495af14ff800e8, type: 3}
+  m_Name: 28_Chesapeake Bans Trick-or-Treating For Everyone Older Than 12
+  m_EditorClassIdentifier: 
+  truthiness: 1
+  headline: Chesapeake Bans Trick-or-Treating For Everyone Older Than 12
+  date: 1967
+  subheading: "In this Virginia city, you\u2019re more in for a trick than a treat
+    on Halloween"
+  buzzwords:
+  - Trick-or-treat
+  - Virginia
+  - Chesapeake
