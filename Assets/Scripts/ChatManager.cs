@@ -95,24 +95,24 @@ public class ChatManager : MonoBehaviour
     public void SpamError()
     {
         StopAllCoroutines();
-        StartCoroutine(Spam(incorrect, 7, 12));
+        StartCoroutine(Spam(incorrect, 9, 14));
     }
 
     public void SpamFake()
     {
         StopAllCoroutines();
-        StartCoroutine(Spam(fake, 4, 9));
+        StartCoroutine(Spam(fake, 8, 13));
     }
 
     public void SpamReal()
     {
         StopAllCoroutines();
-        StartCoroutine(Spam(real, 3, 6));
+        StartCoroutine(Spam(real, 6, 9));
     }
 
     private IEnumerator Spam(List<string> pool, int min, int max)
     {
-        yield return new WaitForSeconds(UnityEngine.Random.Range(0.1f, .3f));
+        yield return new WaitForSeconds(UnityEngine.Random.Range(0.125f, .4f));
         int chatsToDo = UnityEngine.Random.Range(min, max);
         for (int j = 0; j < chatsToDo; ++j)
         {
