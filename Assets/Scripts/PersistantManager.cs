@@ -40,6 +40,11 @@ public class PersistantManager : MonoBehaviour
         SceneManager.LoadScene("StartMenu");
     }
 
+    public int GetPeakViewers()
+    {
+        return maxViewers;
+    }
+
     public void Quit()
     {
         Application.Quit();
