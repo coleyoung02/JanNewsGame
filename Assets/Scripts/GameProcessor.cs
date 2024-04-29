@@ -77,7 +77,7 @@ public class GameProcessor : MonoBehaviour
             }
             else
             {
-                streamMinutes -= Time.deltaTime;
+                streamMinutes -= Time.deltaTime * 60;
                 UpdateStreamTimer();
             }
         }

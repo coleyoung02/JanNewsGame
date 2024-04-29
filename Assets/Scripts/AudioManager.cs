@@ -104,7 +104,7 @@ public class AudioManager : MonoBehaviour
             if (MusicSource.isPlaying)
                 trackTimer += 1 * Time.deltaTime;
 
-            if (!MusicSource.isPlaying || trackTimer >= MusicSource.clip.length)
+            if (!MusicSource.isPlaying || (MusicSource.clip != null && trackTimer >= MusicSource.clip.length))
             {
                 int songIndex = UnityEngine.Random.Range(0, songs.Length);
                 while (songsPlayed[songIndex])

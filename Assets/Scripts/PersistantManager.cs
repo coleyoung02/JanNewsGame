@@ -37,6 +37,7 @@ public class PersistantManager : MonoBehaviour
     public void MainMenu()
     {
         maxViewers = defaultMaxViewers;
+        Debug.Log("load main");
         SceneManager.LoadScene("StartMenu");
     }
 
