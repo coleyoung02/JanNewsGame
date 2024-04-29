@@ -19,6 +19,7 @@ public class PersistantManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
+        Application.runInBackground = true;
     }
 
     public void SetMaxViewers(int viewers)

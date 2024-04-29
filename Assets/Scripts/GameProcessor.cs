@@ -125,11 +125,11 @@ public class GameProcessor : MonoBehaviour
 
     public void Guess(bool real, bool timeout)
     {
-        modAnim.playReaction(real == currentReal);
         if (!doUpdate)
         {
             return;
         }
+        modAnim.playReaction(real == currentReal);
         if (!timeout)
         {
             jan.PlayReaction(real, real == currentReal);
