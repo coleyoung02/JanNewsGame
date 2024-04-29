@@ -30,7 +30,7 @@ public class GameProcessor : MonoBehaviour
     //[SerializeField] private TextMeshProUGUI streamClock;
     bool currentReal;
     bool articlesRemain = true;
-    int viewers = 10000;
+    int viewers;
     private float maxTime = 45f;
     private float currentTime = 0f;
     private float streamMinutes = 0f;
@@ -43,6 +43,8 @@ public class GameProcessor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        viewers = PersistantManager.Instance.GetDefaultMaxViewers();
+        viewerUI.text = viewers.ToString("N0");
         currentTime = maxTime;
         loader.Initialize();
         streamMinutes = streamMaxMinutes * 60f;

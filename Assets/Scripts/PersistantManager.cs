@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class PersistantManager : MonoBehaviour
 {
     public static PersistantManager Instance;
-    private static int defaultMaxViewers = 10000;
+    private static int defaultMaxViewers = 1000;
     private static int maxViewers;
     protected void Awake()
     {
@@ -22,6 +22,10 @@ public class PersistantManager : MonoBehaviour
         Application.runInBackground = true;
     }
 
+    public int GetDefaultMaxViewers()
+    {
+        return defaultMaxViewers;
+    }
     public void SetMaxViewers(int viewers)
     {
         if (viewers > maxViewers)
